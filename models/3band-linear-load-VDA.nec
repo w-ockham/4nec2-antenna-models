@@ -1,0 +1,83 @@
+CM 20m VDA
+CM 
+CE
+SY Ra=5.072433,xx=0	'20m Radiator
+SY Re=5.351251	'20m Reflector
+SY ratio=0.3
+SY ratio2=0.3
+SY Ra20=Ra*(1-ratio)
+SY Re20=Re*(1-ratio2)
+SY Ral20=Ra*ratio
+SY Rel20=Re*ratio2
+SY es=0.25
+SY sz=0.1
+SY S=3.0
+SY H=5
+SY th=76
+SY ths=90-th
+SY dz=es*SIN(ths)
+SY dx=es*COS(ths)
+SY d2x=Ral20*COS(th)
+SY d2xe=Rel20*COS(th)
+SY d2z=Ral20*SIN(th)
+SY d2ze=Rel20*SIN(th)
+SY Raz=Ra20*SIN(th)+sz
+SY Rez=Re20*SIN(th)
+SY Raz2=Raz-dz
+SY Rez2=Rez-dz
+SY Raz3=Raz2-d2z
+SY Rez3=Rez2-d2ze
+SY Rax=S/2-Ra20*COS(th)
+SY Rex=-S/2+Re20*COS(th)
+SY Rax2=Rax-dx
+SY Rex2=Rex+dx
+SY Rax3=Rax2+d2x
+SY Rex3=Rex2-d2xe
+SY L=1.876e-5
+SY L2=1.688e-5
+SY th10=76
+SY th15=76
+SY Ra10=2.55
+SY Re10=2.67
+SY Ra15=3.294675
+SY Re15=3.460197
+SY S10=1.55
+SY S15=2.0
+SY Ra10z=Ra10*SIN(th10)
+SY Ra10x=S10/2-Ra10*COS(th10)
+SY Re10z=Re10*SIN(th10)
+SY Re10x=-S10/2+Re10*COS(th10)
+SY Ra15z=Ra15*SIN(th15)
+SY Ra15x=S15/2-Ra15*COS(th15)
+SY Re15z=Re15*SIN(th15)
+SY Re15x=-S15/2+Re15*COS(th15)
+GW	1	25	S/2	0	H+sz	Rax	0	H+Raz	2.5e-4
+GW	2	25	S/2	0	H-sz	Rax	0	H-Raz	2.5e-4
+GW	3	1	Rax	0	H+Raz	Rax2	0	H+Raz2	2.5e-4
+GW	4	1	Rax	0	H-Raz	Rax2	0	H-Raz2	2.5e-4
+GW	5	25	Rax2	0	H+Raz2	Rax3	0	H+Raz3	2.5e-4
+GW	6	25	Rax2	0	H-Raz2	Rax3	0	H-Raz3	2.5e-4
+GW	8	25	-S/2	0	H	Rex	0	H+Rez	2.5e-4
+GW	9	25	-S/2	0	H	Rex	0	H-Rez	2.5e-4
+GW	9	1	Rex	0	H+Rez	Rex2	0	H+Rez2	2.5e-4
+GW	9	1	Rex	0	H-Rez	Rex2	0	H-Rez2	2.5e-4
+GW	9	25	Rex2	0	H+Rez2	Rex3	0	H+Rez3	2.5e-4
+GW	9	25	Rex2	0	H-Rez2	Rex3	0	H-Rez3	2.5e-4
+GW	10	1	S/2	0	H-0.1	S/2	0	H+0.1	2.5e-4
+GW	11	1	S15/2	0	H-0.1	S15/2	0	H+0.1	2.5e-4
+GW	12	1	S10/2	0	H-0.1	S10/2	0	H+0.1	2.5e-4
+GW	13	25	S15/2	0	H+0.1	Ra15x	0	H+Ra15z	2.5e-4
+GW	14	25	S15/2	0	H-0.1	Ra15x	0	H-Ra15z	2.5e-4
+GW	15	25	-S15/2	0	H	Re15x	0	H+Re15z	2.5e-4
+GW	16	25	-S15/2	0	H	Re15x	0	H-Re15z	2.5e-4
+GW	17	25	S10/2	0	H+0.1	Ra10x	0	H+Ra10z	2.5e-4
+GW	18	25	S10/2	0	H-0.1	Ra10x	0	H-Ra10z	2.5e-4
+GW	19	25	-S10/2	0	H	Re10x	0	H+Re10z	2.5e-4
+GW	20	25	-S10/2	0	H	Re10x	0	H-Re10z	2.5e-4
+GE	-1
+LD	5	0	0	0	58000000
+GN	2	0	0	0	13	0.005
+EK
+EX	0	10	1	0	1	0	0
+FR	0	0	0	0	14.050	0
+EN
