@@ -1,0 +1,53 @@
+CM 20m VDA
+CM 
+CE
+SY sz=0.015
+SY Ra20=3.6071-sz
+SY Re20=3.6071
+SY Ral20=0.07
+SY Rel20=0.28
+SY es=0.25
+SY S=2.9
+SY H=5
+SY th=76
+SY ths=0
+SY dz=es*SIN(ths)
+SY dx=es*COS(ths)
+SY d2x=Ral20*COS(th)
+SY d2xe=Rel20*COS(th)
+SY d2z=Ral20*SIN(th)
+SY d2ze=Rel20*SIN(th)
+SY Raz=Ra20*SIN(th)+sz
+SY Rez=Re20*SIN(th)
+SY Raz2=Raz-dz
+SY Rez2=Rez-dz
+SY Raz3=Raz2-d2z
+SY Rez3=Rez2-d2ze
+SY Rax=S/2-Ra20*COS(th)
+SY Rex=-S/2+Re20*COS(th)
+SY Rax2=Rax-dx
+SY Rex2=Rex+dx
+SY Rax3=Rax2+d2x
+SY Rex3=Rex2-d2xe
+GW	1	25	S/2	0	H+sz	Rax	0	H+Raz	2.5e-4
+GW	2	25	S/2	0	H-sz	Rax	0	H-Raz	2.5e-4
+GW	3	2	Rax	0	H+Raz	Rax2	0	H+Raz2	2.5e-4
+GW	4	2	Rax	0	H-Raz	Rax2	0	H-Raz2	2.5e-4
+GW	5	1	Rax2	0	H+Raz2	Rax3	0	H+Raz3	2.5e-4
+GW	6	1	Rax2	0	H-Raz2	Rax3	0	H-Raz3	2.5e-4
+GW	7	25	-S/2	0	H	Rex	0	H+Rez	2.5e-4
+GW	8	25	-S/2	0	H	Rex	0	H-Rez	2.5e-4
+GW	9	2	Rex	0	H+Rez	Rex2	0	H+Rez2	2.5e-4
+GW	10	2	Rex	0	H-Rez	Rex2	0	H-Rez2	2.5e-4
+GW	11	5	Rex2	0	H+Rez2	Rex3	0	H+Rez3	2.5e-4
+GW	12	5	Rex2	0	H-Rez2	Rex3	0	H-Rez3	2.5e-4
+GW	13	1	S/2	0	H-sz	S/2	0	H+sz	2.5e-4
+GE	1
+LD	5	0	0	0	58000000
+
+GN	2	0	0	0	81	5.0
+EK
+EX	0	13	1	0	1	0	0
+
+FR	0	0	0	0	18.080	0
+EN
