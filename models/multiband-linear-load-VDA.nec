@@ -1,0 +1,98 @@
+CM 20m VDA
+CM 
+CE
+SY S=2.9	'Element spacing
+SY H=5.0	'Height
+SY r=0.00027	'Wire radius (AWG24)
+SY ls=0.25	'Loading element spacing
+SY th=76	'Element angle
+SY ts=0.03	'trap segment length
+SY fs=0.015	'feed segment length
+SY Ra10=2.51,Ra10e=Ra10+ts	'10m Radiator
+SY Re10=2.60,Re10e=Re10+ts	'10m Relector
+SY Ra15=0.80,Ra15e=Ra15+ts	'15m Radiator
+SY Re15=0.84,Re15e=Re15+ts	'15m Reflector
+SY Ra17=0.2371	'17m Radiator
+SY Re17=0.0801	'17m Reflector
+SY Ra17l=0.04,Ra17le=Ra17l+ts
+SY Re17l=0.27,Re17le=Re17l+ts
+SY Ra20=1.43	'20m Radiator
+SY Re20=1.58	'20m Reflector
+SY P0x=S/2,P0z=0
+SY P1x=S/2,P1z=fs
+SY P2x=P1x-Ra10*COS(th),P2z=P1z+Ra10*SIN(th)
+SY P3x=P1x-Ra10e*COS(th),P3z=P1z+Ra10e*SIN(th)
+SY P4x=P1x-(Ra10e+Ra15)*COS(th),P4z=P1z+(Ra10e+Ra15)*SIN(th)
+SY P5x=P1x-(Ra10e+Ra15e)*COS(th),P5z=P1z+(Ra10e+Ra15e)*SIN(th)
+SY P6x=P1x-(Ra10e+Ra15e+Ra17)*COS(th),P6z=P1z+(Ra10e+Ra15e+Ra17)*SIN(th)
+SY P7x=P6x-ls,P7z=P6z
+SY P8x=P7x+Ra17l*COS(th),P8z=P7z-Ra17l*SIN(th)
+SY P9x=P7x+Ra17le*COS(th),P9z=P7z-Ra17le*SIN(th)
+SY P10x=P7x+(Ra17le+Ra20)*COS(th),P10z=P7z-(Ra17le+Ra20)*SIN(th)
+SY Pr2x=P1x-Re10*COS(th),Pr2z=P1z+Re10*SIN(th)
+SY Pr3x=P1x-Re10e*COS(th),Pr3z=P1z+Re10e*SIN(th)
+SY Pr4x=P1x-(Re10e+Re15)*COS(th),Pr4z=P1z+(Re10e+Re15)*SIN(th)
+SY Pr5x=P1x-(Re10e+Re15e)*COS(th),Pr5z=P1z+(Re10e+Re15e)*SIN(th)
+SY Pr6x=P1x-(Re10e+Re15e+Re17)*COS(th),Pr6z=P1z+(Re10e+Re15e+Re17)*SIN(th)
+SY Pr7x=Pr6x-ls,Pr7z=Pr6z
+SY Pr8x=Pr7x+Re17l*COS(th),Pr8z=Pr7z-Re17l*SIN(th)
+SY Pr9x=Pr7x+Re17le*COS(th),Pr9z=Pr7z-Re17le*SIN(th)
+SY Pr10x=Pr7x+(Re17le+Re20)*COS(th),Pr10z=Pr7z-(Re17le+Re20)*SIN(th)
+SY C10=10e-12
+GW	1	1	P0x	0	H+P1z	P1x	0	H-P1z	r
+GW	2	20	P1x	0	H+P1z	P2x	0	H+P2z	r
+GW	3	20	P1x	0	H-P1z	P2x	0	H-P2z	r
+GW	4	1	P2x	0	H+P2z	P3x	0	H+P3z	r
+GW	5	1	P2x	0	H-P2z	P3x	0	H-P3z	r
+GW	6	15	P3x	0	H+P3z	P4x	0	H+P4z	r
+GW	7	15	P3x	0	H-P3z	P4x	0	H-P4z	r
+GW	8	1	P4x	0	H+P4z	P5x	0	H+P5z	r
+GW	9	1	P4x	0	H-P4z	P5x	0	H-P5z	r
+GW	10	5	P5x	0	H+P5z	P6x	0	H+P6z	r
+GW	11	5	P5x	0	H-P5z	P6x	0	H-P6z	r
+GW	12	5	P6x	0	H+P6z	P7x	0	H+P7z	r
+GW	13	5	P6x	0	H-P6z	P7x	0	H-P7z	r
+GW	14	1	P7x	0	H+P7z	P8x	0	H+P8z	r
+GW	15	1	P7x	0	H-P7z	P8x	0	H-P8z	r
+GW	16	1	P8x	0	H+P8z	P9x	0	H+P9z	r
+GW	17	1	P8x	0	H-P8z	P9x	0	H-P9z	r
+GW	18	15	P9x	0	H+P9z	P10x	0	H+P10z	r
+GW	19	15	P9x	0	H-P9z	P10x	0	H-P10z	r
+GW	20	1	-P0x	0	H+P1z	-P1x	0	H-P1z	r
+GW	21	20	-P1x	0	H+P1z	-Pr2x	0	H+Pr2z	r
+GW	22	20	-P1x	0	H-P1z	-Pr2x	0	H-Pr2z	r
+GW	23	1	-Pr2x	0	H+Pr2z	-Pr3x	0	H+Pr3z	r
+GW	24	1	-Pr2x	0	H-Pr2z	-Pr3x	0	H-Pr3z	r
+GW	25	15	-Pr3x	0	H+Pr3z	-Pr4x	0	H+Pr4z	r
+GW	26	15	-Pr3x	0	H-Pr3z	-Pr4x	0	H-Pr4z	r
+GW	27	1	-Pr4x	0	H+Pr4z	-Pr5x	0	H+Pr5z	r
+GW	28	1	-Pr4x	0	H-Pr4z	-Pr5x	0	H-Pr5z	r
+GW	29	1	-Pr5x	0	H+Pr5z	-Pr6x	0	H+Pr6z	r
+GW	30	1	-Pr5x	0	H-Pr5z	-Pr6x	0	H-Pr6z	r
+GW	31	5	-Pr6x	0	H+Pr6z	-Pr7x	0	H+Pr7z	r
+GW	32	5	-Pr6x	0	H-Pr6z	-Pr7x	0	H-Pr7z	r
+GW	33	5	-Pr7x	0	H+Pr7z	-Pr8x	0	H+Pr8z	r
+GW	34	5	-Pr7x	0	H-Pr7z	-Pr8x	0	H-Pr8z	r
+GW	35	1	-Pr8x	0	H+Pr8z	-Pr9x	0	H+Pr9z	r
+GW	36	1	-Pr8x	0	H-Pr8z	-Pr9x	0	H-Pr9z	r
+GW	37	15	-Pr9x	0	H+Pr9z	-Pr10x	0	H+Pr10z	r
+GW	38	15	-Pr9x	0	H-Pr9z	-Pr10x	0	H-Pr10z	r
+GE	1
+LD	5	0	0	0	58000000
+LD	5	4	1	1	0.00001	'10m
+LD	5	5	1	1	0.00001	'10m
+LD	5	23	1	1	0.00001	'10m
+LD	5	24	1	1	0.00001	'10m
+LD	5	8	1	1	58000000	'15m
+LD	5	9	1	1	58000000	'15m
+LD	5	27	1	1	58000000	'15m
+LD	5	28	1	1	58000000	'15m
+LD	5	16	1	1	58000000	'17m
+LD	5	17	1	1	58000000	'17m
+LD	5	35	1	1	58000000	'17m
+LD	5	36	1	1	58000000	'17m
+GN	2	0	0	0	13	0.002
+EK
+EX	0	1	1	0	1	0	0
+FR	0	0	0	0	28.1	0
+EN
