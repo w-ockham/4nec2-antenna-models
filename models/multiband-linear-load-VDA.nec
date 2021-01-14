@@ -8,16 +8,16 @@ SY ls=0.25	'Loading element spacing
 SY th=76	'Element angle
 SY ts=0.03	'trap segment length
 SY fs=0.015	'feed segment length
-SY Ra10=2.51,Ra10e=Ra10+ts	'10m Radiator
+SY Ra10=2.50,Ra10e=Ra10+ts	'10m Radiator
 SY Re10=2.60,Re10e=Re10+ts	'10m Relector
-SY Ra15=0.80,Ra15e=Ra15+ts	'15m Radiator
+SY Ra15=0.81,Ra15e=Ra15+ts	'15m Radiator
 SY Re15=0.84,Re15e=Re15+ts	'15m Reflector
-SY Ra17=0.2371	'17m Radiator
-SY Re17=0.0801	'17m Reflector
-SY Ra17l=0.04,Ra17le=Ra17l+ts
-SY Re17l=0.27,Re17le=Re17l+ts
-SY Ra20=1.43	'20m Radiator
-SY Re20=1.58	'20m Reflector
+SY Ra17=0.23	'17m Radiator
+SY Re17=0.1	'17m Reflector
+SY Ra17l=0.05,Ra17le=Ra17l+ts
+SY Re17l=0.26,Re17le=Re17l+ts
+SY Ra20=1.42	'20m Radiator
+SY Re20=1.56	'20m Reflector
 SY P0x=S/2,P0z=0
 SY P1x=S/2,P1z=fs
 SY P2x=P1x-Ra10*COS(th),P2z=P1z+Ra10*SIN(th)
@@ -79,10 +79,10 @@ GW	37	15	-Pr9x	0	H+Pr9z	-Pr10x	0	H+Pr10z	r
 GW	38	15	-Pr9x	0	H-Pr9z	-Pr10x	0	H-Pr10z	r
 GE	1
 LD	5	0	0	0	58000000
-LD	5	4	1	1	0.00001	'10m
-LD	5	5	1	1	0.00001	'10m
-LD	5	23	1	1	0.00001	'10m
-LD	5	24	1	1	0.00001	'10m
+LD	5	4	1	1	58000000	'10m
+LD	5	5	1	1	58000000	'10m
+LD	5	23	1	1	58000000	'10m
+LD	5	24	1	1	58000000	'10m
 LD	5	8	1	1	58000000	'15m
 LD	5	9	1	1	58000000	'15m
 LD	5	27	1	1	58000000	'15m
@@ -91,6 +91,7 @@ LD	5	16	1	1	58000000	'17m
 LD	5	17	1	1	58000000	'17m
 LD	5	35	1	1	58000000	'17m
 LD	5	36	1	1	58000000	'17m
+
 GN	2	0	0	0	13	0.002
 EK
 EX	0	1	1	0	1	0	0
