@@ -1,4 +1,4 @@
-CM 20m VDA
+CM 20m-17m-15m-10m Multiband VDA
 CM 
 CE
 SY S=2.9	'Element spacing
@@ -16,7 +16,7 @@ SY Ra17=0.23	'17m Radiator
 SY Re17=0.1	'17m Reflector
 SY Ra17l=0.05,Ra17le=Ra17l+ts
 SY Re17l=0.26,Re17le=Re17l+ts
-SY Ra20=1.42	'20m Radiator
+SY Ra20=1.40	'20m Radiator
 SY Re20=1.56	'20m Reflector
 SY P0x=S/2,P0z=0
 SY P1x=S/2,P1z=fs
@@ -91,9 +91,8 @@ LD	5	16	1	1	58000000	'17m
 LD	5	17	1	1	58000000	'17m
 LD	5	35	1	1	58000000	'17m
 LD	5	36	1	1	58000000	'17m
-
 GN	2	0	0	0	13	0.002
 EK
 EX	0	1	1	0	1	0	0
-FR	0	0	0	0	28.1	0
+FR	0	0	0	0	14.010	0
 EN
