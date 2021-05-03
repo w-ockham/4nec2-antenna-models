@@ -1,0 +1,45 @@
+CM 17m-20m VDA
+CM 
+CE
+SY len20=5.43
+SY len17=4
+SY len20r=5.86
+SY len17r=4.26
+SY rad=0.00025
+SY H=5.0
+SY S=2.5
+SY AH=3.5
+SY seg=0.05
+SY th=77
+SY xrad  = cos(th) * AH
+SY zrad = AH
+SY zrad2= AH - len17 + sqr(AH*AH + xrad * xrad)
+SY zrad3= AH - len20 + sqr(AH*AH + xrad * xrad)
+SY xref = cos(th) *  AH
+SY zref = AH
+SY zref2 = AH - len17r+ sqr(AH*AH + xref * xref)
+SY zref3 = AH - len20r + sqr(AH*AH + xref * xref)
+GW	1	1	0	0	H-seg	0	0	H+seg	rad
+GW	2	1	-S	0	H-seg	-S	0	H+seg	rad
+GW	3	20	0	0	H+seg	-xrad	0	H+seg+zrad	rad
+GW	4	20	0	0	H-seg	-xrad	0	H-seg-zrad	rad
+GW	5	20	-S	0	H+seg	-S+xref	0	H+seg+zref	rad
+GW	6	20	-S	0	H-seg	-S+xref	0	H-seg-zref	rad
+GW	7	5	-xrad	0	H+seg+zrad	-xrad	0	H+seg+zrad2	rad
+GW	8	10	-xrad	0	H+seg+zrad2	-xrad	0	H+seg+zrad3	rad
+GW	9	5	-xrad	0	H-seg-zrad	-xrad	0	H-seg-zrad2	rad
+GW	10	10	-xrad	0	H-seg-zrad2	-xrad	0	H-seg-zrad3	rad
+GW	11	5	-S+xref	0	H+seg+zref	-S+xref	0	H+seg+zref2	rad
+GW	12	10	-S+xref	0	H+seg+zref2	-S+xref	0	H+seg+zref3	rad
+GW	13	5	-S+xref	0	H-seg-zref	-S+xref	0	H-seg-zref2	rad
+GW	14	10	-S+xref	0	H-seg-zref2	-S+xref	0	H-seg-zref3	rad
+GE	1
+LD	5	8	1	10	58000000
+LD	5	10	1	10	58000000
+LD	5	12	1	10	58000000
+LD	5	14	1	10	58000000
+GN	2	0	0	0	13	0.005
+EK
+EX	0	1	1	0	1	0	0
+FR	0	0	0	0	14.05	0
+EN
