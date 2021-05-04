@@ -1,0 +1,92 @@
+CM 10-12-15-17-20m VDA (narrow spacing)
+CM 
+CM 
+CE
+SY len20=5.37
+SY len17=4
+SY len15=3.33
+SY len12=2.81
+SY len10=2.51
+SY len20r=5.87
+SY len17r=4.29
+SY len15r=3.43
+SY len12r=2.90
+SY len10r=2.57
+SY rad=0.00025
+SY H=5.0
+SY S=2.35
+SY AH=3.5
+SY Ftp=H
+SY Fb=H
+SY th=77
+SY xrad  = AH / tan(th)
+SY zrad = AH
+SY xrad15  = len15 * cos(th)
+SY xrad12  = len12 * cos(th)
+SY xrad10  = len10 * cos(th)
+SY zrad15  = len15 * sin(th)
+SY zrad12  = len12 * sin(th)
+SY zrad10  = len10 * sin(th)
+SY zrad17= AH - (len17 - sqr(AH*AH + xrad * xrad))
+SY zrad20= AH - (len20 - sqr(AH*AH + xrad * xrad))
+SY xref = AH / tan(th)
+SY zref = AH
+SY xref15  = len15r * cos(th)
+SY xref12  = len12r * cos(th)
+SY xref10 = len10r * cos(th)
+SY zref15  = len15r * sin(th)
+SY zref12  = len12r * sin(th)
+SY zref10 = len10r * sin(th)
+SY zref152 = AH - (len15r -  sqr(AH*AH + xref * xref))
+SY zref17 = AH - (len17r -  sqr(AH*AH + xref * xref))
+SY zref20= AH - (len20r - sqr(AH*AH + xref * xref))
+GW	2	20	0	0	Ftp	-xrad10	0	Ftp+zrad10	rad
+GW	3	5	-xrad10	0	Ftp+zrad10	-xrad12	0	Ftp+zrad12	rad
+GW	4	5	-xrad12	0	Ftp+zrad12	-xrad15	0	Ftp+zrad15	rad
+GW	5	2	-xrad15	0	Ftp+zrad15	-xrad	0	Ftp+zrad	rad
+GW	6	20	0	0	Fb	-xrad10	0	Fb-zrad10	rad
+GW	7	5	-xrad10	0	Fb-zrad10	-xrad12	0	Fb-zrad12	rad
+GW	8	5	-xrad12	0	Fb-zrad12	-xrad15	0	Fb-zrad15	rad
+GW	9	5	-xrad15	0	Fb-zrad15	-xrad	0	Fb-zrad	rad
+GW	10	20	-S	0	H	-S+xref10	0	H+zref10	rad
+GW	11	3	-S+xref10	0	H+zref10	-S+xref12	0	H+zref12	rad
+GW	12	3	-S+xref12	0	H+zref12	-S+xref15	0	H+zref15	rad
+GW	13	1	-S+xref15	0	H+zref15	-S+xref	0	H+zref	rad
+GW	14	20	-S	0	H	-S+xref10	0	H-zref10	rad
+GW	15	3	-S+xref10	0	H-zref10	-S+xref12	0	H-zref12	rad
+GW	16	3	-S+xref12	0	H-zref12	-S+xref15	0	H-zref15	rad
+GW	17	1	-S+xref15	0	H-zref15	-S+xref	0	H-zref	rad
+GW	18	5	-xrad	0	Ftp+zrad	-xrad	0	Ftp+zrad17	rad
+GW	19	5	-xrad	0	Ftp+zrad17	-xrad	0	Ftp+zrad20	rad
+GW	20	5	-xrad	0	Fb-zrad	-xrad	0	Fb-zrad17	rad
+GW	21	5	-xrad	0	Fb-zrad17	-xrad	0	Fb-zrad20	rad
+GW	22	2	-S+xref	0	H+zref	-S+xref	0	H+zref17	rad
+GW	23	10	-S+xref	0	H+zref17	-S+xref	0	H+zref20	rad
+GW	24	2	-S+xref	0	H-zref	-S+xref	0	H-zref17	rad
+GW	25	10	-S+xref	0	H-zref17	-S+xref	0	H-zref20	rad
+GE	1
+LD	5	3	1	5	58000000	'10m Set 'Cond.' to 'Insulator' to isolate each element.
+LD	5	7	1	5	58000000	'10m
+LD	5	11	1	5	58000000	'10m
+LD	5	15	1	5	58000000	'10m
+LD	5	4	1	5	58000000	'12m
+LD	5	8	1	5	58000000	'12m
+LD	5	12	1	5	58000000	'12m
+LD	5	16	1	5	58000000	'12m
+LD	5	5	1	5	58000000	'15m
+LD	5	9	1	5	58000000	'15m
+LD	5	18	1	5	58000000	'15m
+LD	5	20	1	5	58000000	'15m
+LD	5	13	1	5	58000000	'15m
+LD	5	17	1	5	58000000	'15m
+LD	5	22	1	5	58000000	'15m
+LD	5	24	1	5	58000000	'15m
+LD	5	19	1	5	58000000	'17m
+LD	5	21	1	5	58000000	'17m
+LD	5	23	1	10	58000000	'17m
+LD	5	25	1	10	58000000	'17m
+GN	2	0	0	0	13	0.005
+EK
+EX	0	2	1	0	1	0	0
+FR	0	0	0	0	14.05	0
+EN
