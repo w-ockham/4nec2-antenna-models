@@ -1,0 +1,23 @@
+CM 6m VDA
+CM 
+CE
+SY r=0.00025
+SY S=1
+SY H=2.5
+SY Ra=1.4
+SY Re=1.46
+SY th=75
+SY xra=Ra * cos(th)
+SY xre=Re * cos(th)
+SY zra=Ra * sin(th)
+SY zre=Re * sin(th)
+GW	1	20	0	0	H	-xra	0	H+zra	r
+GW	2	20	0	0	H	-xra	0	H-zra	r
+GW	3	20	-S	0	H	-S+xre	0	H+zre	r
+GW	4	20	-S	0	H	-S+xre	0	H-zre	r
+GE	1
+GN	2	0	0	0	13	0.005
+EK
+EX	0	1	1	0	1	0	0
+FR	0	0	0	0	50.1	0
+EN
